@@ -5,27 +5,30 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   { import = "astrocommunity.colorscheme.catppuccin" },
+  -- { import = "astrocommunity.colorscheme.iceberg-vim" },
+  -- { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { -- further customize the options set by the community
     "catppuccin",
     opts = {
-      integrations = {
-        sandwich = false,
-        noice = true,
-        mini = true,
-        leap = true,
-        markdown = true,
-        neotest = true,
-        cmp = true,
-        overseer = true,
-        lsp_trouble = true,
-        rainbow_delimiters = true,
-      },
+      custom_highlights = function(colors)
+        return {
+          LineNr = { fg = colors.overlay1 },
+          CursorLineNr = { fg = colors.yellow },
+        }
+      end,
     },
   },
-  { import = "astrocommunity.colorscheme.rose-pine" },
+  -- { import = "astrocommunity.colorscheme.rose-pine" },
 
   -- show line length column
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+  {
+    "m4xshen/smartcolumn.nvim",
+    opts = {
+      colorcolumn = 120,
+      disabled_filetypes = { "help" },
+    },
+  },
   -- highlight word under cursor
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   -- markdown headlines
@@ -33,15 +36,16 @@ return {
   { import = "astrocommunity.color.twilight-nvim" },
   -- zen
   { import = "astrocommunity.editing-support.auto-save-nvim" },
+  { import = "astrocommunity.editing-support.chatgpt-nvim" },
   -- smarter increment/decrement
   { import = "astrocommunity.editing-support.dial-nvim" },
   { import = "astrocommunity.editing-support.multicursors-nvim" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-  { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  -- { import = "astrocommunity.editing-support.zen-mode-nvim" },
   -- better motion
   { import = "astrocommunity.motion.flash-nvim" },
   -- better c-w
-  { import = "astrocommunity.motion.nvim-spider" },
+  -- { import = "astrocommunity.motion.nvim-spider" },
   -- better %
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.pack.docker" },
@@ -54,5 +58,5 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.programming-language-support.rest-nvim" },
-  { import = "astrocommunity.workflow.hardtime-nvim" },
+  -- { import = "astrocommunity.workflow.hardtime-nvim" },
 }
